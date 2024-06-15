@@ -1,4 +1,4 @@
-package io.spring.websocket.controller;
+package io.spring.websocket.chat.controller;
 
 import jakarta.websocket.OnClose;
 import jakarta.websocket.OnMessage;
@@ -55,4 +55,5 @@ public class ChatController extends Socket {
             }
         }
     }
+
 }
