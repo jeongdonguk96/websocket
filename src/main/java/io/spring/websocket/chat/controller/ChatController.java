@@ -1,10 +1,10 @@
 package io.spring.websocket.chat.controller;
 
-import jakarta.websocket.OnClose;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.websocket.OnMessage;
 import jakarta.websocket.OnOpen;
 import jakarta.websocket.Session;
-import jakarta.websocket.server.PathParam;
 import jakarta.websocket.server.ServerEndpoint;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import java.io.IOException;
 import java.net.Socket;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
+@Tag(name = "Chat", description = "채팅")
 @Slf4j
 @Controller
 @ServerEndpoint("/websocket")
@@ -22,9 +24,9 @@ public class ChatController extends Socket {
     private static final List<Session> sessions = new ArrayList<>();
 
 
+    @Operation(summary = "채팅방 입장")
     @GetMapping("/chatroom")
-    public String index() {
-        System.out.println("dddd");
+    public String getIndexPage() {
         return "index";
     }
 
