@@ -7,6 +7,7 @@ import io.spring.websocket.response.dto.CommonResult;
 import io.spring.websocket.response.service.ResponseService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,8 +34,8 @@ public class MemberController {
 
     @Operation(summary = "로그인")
     @PostMapping("/signin")
-    public CommonResult signIn(@Validated @RequestBody SignInRequest request) {
-        return responseService.getSingleResult(memberService.signIn(request));
+    public CommonResult signIn(@Validated @RequestBody SignInRequest request, HttpSession session) {
+        return responseService.getSingleResult(memberService.signIn(request, session));
     }
 
 }
