@@ -1,12 +1,10 @@
 package io.spring.websocket.member.entity;
 
 import io.spring.websocket.member.dto.SignUpRequest;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
+@Table(name = "member2")
 @Getter
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
